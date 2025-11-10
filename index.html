@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Classifier</title>
+</head>
+<body>
+    <h1>Text Classifier</h1>
+    <input type="text" id="text" placeholder="Enter text..." style="width: 400px">
+    <button onclick="classify()">Classify</button>
+    <div id="result"></div>
+    <div id="time"></div>
+
+    <script type="module">
+        import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.6.0';
+
+        let classifier;
+
+        async function loadModel() {
+            document.getElementById('result').textContent = 'Loading model...';
+            classifier = await pipeline('text-classification', './onnx_quantized/');
+            document.getElementById('result').textContent = 'Model loaded!';
+        }
+
+        window.classify = async function() {
+            const text = document.getElementById('text').value;
+            const start = performance.now();
+            const result = await classifier(text);
+            const time = performance.now() - start;
+            
+            const confidence = result[0].score;
+            if (confidence < 0.7) {
+                document.getElementById('result').textContent = `Result: ${result[0].label} (confidence: ${(confidence * 100).toFixed(1)}%)`;
+            } else {
+                document.getElementById('result').textContent = `Result: ${result[0].label} (${(confidence * 100).toFixed(1)}%)`;
+            }
+            document.getElementById('time').textContent = `Time: ${time.toFixed(2)}ms`;
+        }
+
+        loadModel();
+    </script>
+</body>
+</html>

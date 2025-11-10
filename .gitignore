@@ -1,0 +1,62 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# PyInstaller
+*.spec
+
+# Test and coverage
+.coverage
+coverage.xml
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Logs and misc
+*.log
+.DS_Store
+
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Models (too large)
+models/
+*.onnx
+*.pth
+*.bin
+*.safetensors
+
+# Data
+data/*.csv
+
+# Node
+node_modules/
+.wrangler/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
