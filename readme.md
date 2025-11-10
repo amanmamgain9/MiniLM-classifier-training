@@ -1,5 +1,7 @@
-# Text Classifier Training & Deployment
 
+It works but the data was one shot generated using chatgpt, second it is not clear what is the difference between project ,task and goals as these words are used interchangeably in normal conversation and language
+
+# Text Classifier Training & Deployment
 Multi-label text classifier for categorizing tasks, events, habits, recurring events, goals, and projects in English and Chinese.
 
 ## Setup
